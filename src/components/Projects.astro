@@ -1,0 +1,380 @@
+---
+// Using online placeholder images for better performance and responsiveness
+const projects = [
+  {
+    title: "E-Commerce Dashboard",
+    description: "A comprehensive dashboard for e-commerce store owners with real-time analytics, inventory management, and order processing capabilities. This enterprise-grade solution helps businesses monitor sales performance, track inventory levels, and streamline order fulfillment from a single interface.",
+    longDescription: "Developed for a mid-sized retail client with multiple online stores, this dashboard integrates with their existing e-commerce platform to provide unified analytics and operations management. The application features real-time sales tracking with customizable date ranges, automated inventory alerts, one-click order processing, and detailed customer insights.",
+    challenges: "The main challenge was integrating with multiple data sources and ensuring real-time updates without performance degradation. I implemented efficient data caching strategies and WebSocket connections to maintain responsiveness even with large datasets.",
+    technologies: ["React", "Redux", "Node.js", "Express", "MongoDB", "Chart.js", "Socket.io", "AWS S3"],
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop&q=80",
+    demoUrl: "https://ecommerce-dashboard.johnsmith.dev",
+    codeUrl: "https://github.com/johnsmith-dev/ecommerce-dashboard"
+  },
+  {
+    title: "WeatherNow App",
+    description: "A modern weather application with location detection, 7-day forecast, and interactive weather maps. Features a clean, intuitive UI with dark mode support and severe weather alerts for user-defined locations.",
+    longDescription: "WeatherNow provides accurate, location-based weather forecasts with an emphasis on user experience and accessibility. The app automatically detects the user's location or allows manual location search, displays current conditions alongside hourly and 7-day forecasts, and features interactive radar maps with precipitation and temperature overlays.",
+    challenges: "Creating a responsive interface that worked seamlessly across all devices while maintaining fast load times was challenging. I implemented progressive loading techniques and optimized API calls to reduce data usage without sacrificing functionality.",
+    technologies: ["JavaScript", "React", "Redux", "OpenWeather API", "Leaflet.js", "Geolocation API", "Progressive Web App", "Service Workers"],
+    image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=600&h=400&fit=crop&q=80",
+    demoUrl: "https://weather-now.johnsmith.dev",
+    codeUrl: "https://github.com/johnsmith-dev/weather-now"
+  },
+  {
+    title: "Taskify - Team Collaboration Platform",
+    description: "A collaborative task management platform with real-time updates, drag-and-drop functionality, and team collaboration features. Helps teams organize projects, assign tasks, track progress, and meet deadlines efficiently.",
+    longDescription: "Taskify was built to address the needs of remote teams requiring a centralized workspace for project management. The application features customizable Kanban boards, task assignment with priority levels, file attachments, comment threads, and automated notifications. All changes sync in real-time across all team members' devices.",
+    challenges: "Implementing real-time synchronization while maintaining data consistency across multiple users was complex. I used Firebase's real-time database with custom conflict resolution logic to ensure all users always see the most up-to-date information.",
+    technologies: ["TypeScript", "React", "Redux", "Firebase Realtime Database", "Firebase Authentication", "Tailwind CSS", "React DnD", "Jest"],
+    image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=600&h=400&fit=crop&q=80",
+    demoUrl: "https://taskify.johnsmith.dev",
+    codeUrl: "https://github.com/johnsmith-dev/taskify"
+  },
+  {
+    title: "FinTrack - Personal Finance Manager",
+    description: "A comprehensive application to track personal finances, including expense categorization, budget planning, and visualization of spending patterns with customizable reports and financial goal tracking.",
+    longDescription: "FinTrack helps users gain control over their finances by automatically categorizing transactions, creating monthly budgets, and visualizing spending patterns. The application includes features like receipt scanning with OCR, recurring transaction tracking, financial goal setting with progress monitoring, and customizable reports for different time periods.",
+    challenges: "Ensuring data security while providing a seamless user experience was paramount. I implemented end-to-end encryption for sensitive financial data and designed an intuitive interface that makes complex financial tracking accessible to users with varying levels of financial literacy.",
+    technologies: ["Vue.js", "Vuex", "Node.js", "Express", "PostgreSQL", "D3.js", "Plaid API", "JWT Authentication", "Docker"],
+    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=400&fit=crop&q=80",
+    demoUrl: "https://fintrack.johnsmith.dev",
+    codeUrl: "https://github.com/johnsmith-dev/fintrack"
+  },
+  {
+    title: "DevConnect - Developer Networking Platform",
+    description: "A social platform designed specifically for developers to connect, share projects, collaborate on code, and find job opportunities in the tech industry.",
+    longDescription: "DevConnect bridges the gap between developers, employers, and collaborators. The platform allows developers to create detailed profiles showcasing their skills and projects, share code snippets with syntax highlighting, participate in technical discussions, and discover job opportunities matched to their skill set. Employers can post positions and search for candidates based on specific technical criteria.",
+    challenges: "Building a scalable social platform with code sharing capabilities required careful architecture planning. I implemented efficient database indexing for fast searches and a custom code editor component with real-time collaboration features.",
+    technologies: ["React", "GraphQL", "Apollo", "Node.js", "MongoDB", "Redis", "AWS Lambda", "GitHub API", "Monaco Editor"],
+    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop&q=80",
+    demoUrl: "https://devconnect.johnsmith.dev",
+    codeUrl: "https://github.com/johnsmith-dev/devconnect"
+  },
+  {
+    title: "EcoTrack - Environmental Monitoring System",
+    description: "An IoT-based environmental monitoring system that collects, analyzes, and visualizes data from various sensors to track air quality, temperature, humidity, and other environmental factors.",
+    longDescription: "EcoTrack combines hardware sensors with a powerful web dashboard to provide real-time environmental monitoring. The system collects data from distributed sensor nodes, processes it using machine learning algorithms to identify patterns and anomalies, and presents actionable insights through an intuitive dashboard. Users can set up alerts for specific environmental conditions and generate detailed reports for compliance or research purposes.",
+    challenges: "Handling the continuous stream of data from multiple sensors while maintaining system performance was challenging. I designed a microservices architecture with message queuing to process sensor data efficiently and implemented data aggregation strategies to optimize dashboard performance.",
+    technologies: ["JavaScript", "React", "Node.js", "MQTT", "InfluxDB", "TensorFlow.js", "Raspberry Pi", "Arduino", "WebSockets", "Chart.js"],
+    image: "https://images.unsplash.com/photo-1464823063530-08f10ed1a2dd?w=600&h=400&fit=crop&q=80",
+    demoUrl: "https://ecotrack.johnsmith.dev",
+    codeUrl: "https://github.com/johnsmith-dev/ecotrack"
+  }
+];
+
+// Create placeholder gradient colors as fallback
+const placeholderColors = [
+  "from-primary-500 to-secondary-500",
+  "from-blue-500 to-purple-500",
+  "from-green-500 to-teal-500",
+  "from-orange-500 to-red-500"
+];
+---
+
+<section id="projects" class="py-12 sm:py-16 md:py-20 bg-light-200 dark:bg-dark-200 transition-colors duration-300">
+  <div class="container mx-auto px-4">
+    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold font-heading mb-8 sm:mb-12 text-center">
+      My <span class="text-primary-600 dark:text-primary-400">Projects</span>
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-12">
+      {projects.map((project, index) => (
+        <div class="bg-light-100 dark:bg-dark-100 rounded-xl overflow-hidden shadow-lg transform transition-all duration-500 hover:scale-[1.02] hover:shadow-xl flex flex-col h-full">
+          <!-- Project image with responsive handling -->
+          <div class="h-48 sm:h-56 md:h-64 bg-gradient-to-br {placeholderColors[index % placeholderColors.length]} flex items-center justify-center overflow-hidden">
+            {project.image ? (
+              <img 
+                src={project.image} 
+                alt={project.title} 
+                width="600" 
+                height="400" 
+                class="w-full h-full object-cover" 
+                loading={index < 2 ? "eager" : "lazy"} 
+                decoding="async"
+                fetchpriority={index < 2 ? "high" : "low"}
+              />
+            ) : (
+              <div class="text-white text-lg sm:text-xl font-bold p-4 text-center">{project.title}</div>
+            )}
+          </div>
+
+          <div class="p-4 sm:p-6 flex flex-col flex-grow">
+            <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3">{project.title}</h3>
+            <p class="text-dark-400 dark:text-light-400 mb-4 text-sm sm:text-base">{project.description}</p>
+            
+            <!-- Expandable details section -->
+            <details class="mb-4 text-sm sm:text-base">
+              <summary class="font-medium text-primary-600 dark:text-primary-400 cursor-pointer hover:text-primary-700 dark:hover:text-primary-300 transition-colors">
+                View Project Details
+              </summary>
+              <div class="mt-3 pl-4 border-l-2 border-primary-200 dark:border-primary-800">
+                <h4 class="font-medium mb-2">Overview</h4>
+                <p class="text-dark-400 dark:text-light-400 mb-4">{project.longDescription}</p>
+                
+                <h4 class="font-medium mb-2">Technical Challenges</h4>
+                <p class="text-dark-400 dark:text-light-400 mb-4">{project.challenges}</p>
+              </div>
+            </details>
+
+            <!-- Technologies used -->
+            <div class="flex flex-wrap gap-1.5 sm:gap-2 mb-4 sm:mb-6">
+              {project.technologies.map((tech) => (
+                <span class="px-2 sm:px-3 py-1 bg-light-200 dark:bg-dark-300 rounded-full text-xs font-medium">
+                  {tech}
+                </span>
+              ))}
+            </div>
+
+            <!-- Project links -->
+            <div class="flex flex-wrap gap-3 sm:gap-4">
+              <a 
+                href={project.demoUrl} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="px-3 sm:px-4 py-1.5 sm:py-2 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-lg transition-colors duration-300 text-xs sm:text-sm flex items-center"
+                aria-label={`View live demo of ${project.title}`}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 sm:h-4 sm:w-4 mr-1.5 sm:mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                </svg>
+                Live Demo
+              </a>
+              <a 
+                href={project.codeUrl} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="px-3 sm:px-4 py-1.5 sm:py-2 border border-primary-600 dark:border-primary-400 text-primary-600 dark:text-primary-400 hover:bg-primary-50 dark:hover:bg-dark-300 font-medium rounded-lg transition-colors duration-300 text-xs sm:text-sm flex items-center"
+                aria-label={`View code for ${project.title} on GitHub`}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 sm:h-4 sm:w-4 mr-1.5 sm:mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                </svg>
+                View Code
+              </a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Case Studies Section -->
+    <div class="mt-16 mb-16">
+      <h3 class="text-2xl font-bold mb-8 text-center">
+        Featured <span class="text-primary-600 dark:text-primary-400">Case Studies</span>
+      </h3>
+      
+      <div class="bg-light-100 dark:bg-dark-100 rounded-xl shadow-lg overflow-hidden mb-12">
+        <div class="flex flex-col lg:flex-row">
+          <div class="w-full lg:w-1/2 h-64 lg:h-auto bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop&q=80" 
+              alt="E-Commerce Platform Case Study" 
+              class="w-full h-full object-cover" 
+              loading="lazy"
+            />
+          </div>
+          <div class="p-6 lg:p-8 flex flex-col lg:w-1/2">
+            <h4 class="text-xl font-bold mb-4">Case Study: E-Commerce Platform Redesign</h4>
+            <div class="mb-4">
+              <span class="inline-block bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 text-xs font-medium px-2.5 py-0.5 rounded-full mr-2">React</span>
+              <span class="inline-block bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 text-xs font-medium px-2.5 py-0.5 rounded-full mr-2">Node.js</span>
+              <span class="inline-block bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 text-xs font-medium px-2.5 py-0.5 rounded-full">Performance</span>
+            </div>
+            <div class="text-dark-400 dark:text-light-400 text-sm space-y-3 mb-6">
+              <p><span class="font-medium">Client:</span> RetailFlow Inc., an established e-commerce business with 50,000+ monthly customers</p>
+              <p><span class="font-medium">Challenge:</span> Their existing platform suffered from slow load times, poor mobile experience, and checkout abandonment issues.</p>
+              <p><span class="font-medium">Solution:</span> Complete redesign using React for the frontend and Node.js microservices for the backend, with a focus on performance optimization and responsive design.</p>
+              <p><span class="font-medium">Results:</span> 40% increase in conversion rate, 65% reduction in page load time, and 30% increase in mobile purchases within three months of launch.</p>
+            </div>
+            <a 
+              href="#" 
+              class="mt-auto text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-medium flex items-center"
+            >
+              Read Full Case Study
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-light-100 dark:bg-dark-100 rounded-xl shadow-lg overflow-hidden">
+        <div class="flex flex-col lg:flex-row-reverse">
+          <div class="w-full lg:w-1/2 h-64 lg:h-auto bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=600&fit=crop&q=80" 
+              alt="FinTech App Case Study" 
+              class="w-full h-full object-cover" 
+              loading="lazy"
+            />
+          </div>
+          <div class="p-6 lg:p-8 flex flex-col lg:w-1/2">
+            <h4 class="text-xl font-bold mb-4">Case Study: FinTech Mobile Application</h4>
+            <div class="mb-4">
+              <span class="inline-block bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 text-xs font-medium px-2.5 py-0.5 rounded-full mr-2">React Native</span>
+              <span class="inline-block bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 text-xs font-medium px-2.5 py-0.5 rounded-full mr-2">GraphQL</span>
+              <span class="inline-block bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 text-xs font-medium px-2.5 py-0.5 rounded-full">Security</span>
+            </div>
+            <div class="text-dark-400 dark:text-light-400 text-sm space-y-3 mb-6">
+              <p><span class="font-medium">Client:</span> FinanceHub, a startup focused on personal finance management</p>
+              <p><span class="font-medium">Challenge:</span> Creating a secure, intuitive mobile application for financial tracking with real-time data synchronization.</p>
+              <p><span class="font-medium">Solution:</span> Developed a React Native application with GraphQL for efficient data fetching, implemented biometric authentication, and created an intuitive data visualization dashboard.</p>
+              <p><span class="font-medium">Results:</span> Successfully launched on both iOS and Android with 4.8/5 star ratings, 20,000+ downloads in the first month, and featured in "Best New Finance Apps" category.</p>
+            </div>
+            <a 
+              href="#" 
+              class="mt-auto text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-medium flex items-center"
+            >
+              Read Full Case Study
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Project Methodology Section -->
+    <div class="mb-16">
+      <h3 class="text-2xl font-bold mb-8 text-center">
+        My Project <span class="text-primary-600 dark:text-primary-400">Methodology</span>
+      </h3>
+      
+      <div class="bg-light-100 dark:bg-dark-100 rounded-xl shadow-lg p-6 md:p-8">
+        <div class="flex flex-col md:flex-row gap-8 items-center mb-8">
+          <div class="w-full md:w-1/3 flex justify-center">
+            <div class="w-48 h-48 rounded-full bg-gradient-to-br from-primary-500/20 to-secondary-500/20 flex items-center justify-center p-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-primary-600 dark:text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2" />
+              </svg>
+            </div>
+          </div>
+          <div class="w-full md:w-2/3">
+            <h4 class="text-xl font-bold mb-4 text-center md:text-left">Agile Development with a User-Centered Focus</h4>
+            <p class="text-dark-400 dark:text-light-400 text-sm mb-4">My approach to project development combines the flexibility of Agile methodologies with a strong focus on user experience. I believe that successful projects are built through collaboration, iteration, and a deep understanding of both business goals and user needs.</p>
+            <p class="text-dark-400 dark:text-light-400 text-sm">Each project follows a structured yet adaptable process that ensures quality, meets deadlines, and delivers exceptional value. Below are the key phases of my development methodology:</p>
+          </div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="bg-light-200 dark:bg-dark-300 rounded-lg p-5 transform transition-all duration-500 hover:scale-[1.03]">
+            <div class="flex items-center mb-4">
+              <div class="w-10 h-10 rounded-full bg-primary-100 dark:bg-primary-900 flex items-center justify-center text-primary-600 dark:text-primary-400 mr-3">
+                <span class="font-bold">1</span>
+              </div>
+              <h5 class="font-bold">Discovery & Planning</h5>
+            </div>
+            <ul class="text-dark-400 dark:text-light-400 text-sm space-y-2">
+              <li>• Stakeholder interviews</li>
+              <li>• User research & persona development</li>
+              <li>• Requirements gathering</li>
+              <li>• Technical feasibility assessment</li>
+              <li>• Project roadmap creation</li>
+            </ul>
+          </div>
+          
+          <div class="bg-light-200 dark:bg-dark-300 rounded-lg p-5 transform transition-all duration-500 hover:scale-[1.03]">
+            <div class="flex items-center mb-4">
+              <div class="w-10 h-10 rounded-full bg-primary-100 dark:bg-primary-900 flex items-center justify-center text-primary-600 dark:text-primary-400 mr-3">
+                <span class="font-bold">2</span>
+              </div>
+              <h5 class="font-bold">Design & Architecture</h5>
+            </div>
+            <ul class="text-dark-400 dark:text-light-400 text-sm space-y-2">
+              <li>• UI/UX wireframing & prototyping</li>
+              <li>• Technical architecture planning</li>
+              <li>• Database schema design</li>
+              <li>• API specification</li>
+              <li>• Security & performance planning</li>
+            </ul>
+          </div>
+          
+          <div class="bg-light-200 dark:bg-dark-300 rounded-lg p-5 transform transition-all duration-500 hover:scale-[1.03]">
+            <div class="flex items-center mb-4">
+              <div class="w-10 h-10 rounded-full bg-primary-100 dark:bg-primary-900 flex items-center justify-center text-primary-600 dark:text-primary-400 mr-3">
+                <span class="font-bold">3</span>
+              </div>
+              <h5 class="font-bold">Development & Testing</h5>
+            </div>
+            <ul class="text-dark-400 dark:text-light-400 text-sm space-y-2">
+              <li>• Iterative development in sprints</li>
+              <li>• Continuous integration/deployment</li>
+              <li>• Automated & manual testing</li>
+              <li>• Regular client demos & feedback</li>
+              <li>• Performance optimization</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Project Testimonials Section -->
+    <div class="mb-16">
+      <h3 class="text-2xl font-bold mb-8 text-center">
+        Client <span class="text-primary-600 dark:text-primary-400">Feedback</span>
+      </h3>
+      
+      <div class="bg-light-100 dark:bg-dark-100 rounded-xl shadow-lg p-6 md:p-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="flex flex-col">
+            <div class="flex-1 bg-light-200 dark:bg-dark-300 rounded-lg p-5 relative">
+              <div class="absolute -top-3 left-5 text-primary-500 text-4xl">"</div>
+              <p class="text-dark-400 dark:text-light-400 text-sm italic pt-3 mb-4">John's work on our e-commerce platform exceeded all expectations. He not only delivered a beautiful, high-performing website but also provided valuable insights that helped us improve our overall digital strategy.</p>
+              <div class="flex justify-end">
+                <div class="text-primary-600 dark:text-primary-400 text-4xl">"</div>
+              </div>
+            </div>
+            <div class="flex items-center mt-4 ml-4">
+              <div class="w-10 h-10 rounded-full bg-primary-100 dark:bg-primary-900 flex items-center justify-center text-primary-600 dark:text-primary-400 mr-3">
+                <span class="font-bold">SB</span>
+              </div>
+              <div>
+                <p class="font-medium">Sarah Brown</p>
+                <p class="text-dark-300 dark:text-light-300 text-xs">RetailFlow Inc.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="flex flex-col">
+            <div class="flex-1 bg-light-200 dark:bg-dark-300 rounded-lg p-5 relative">
+              <div class="absolute -top-3 left-5 text-primary-500 text-4xl">"</div>
+              <p class="text-dark-400 dark:text-light-400 text-sm italic pt-3 mb-4">The task management application John built for our remote team has completely transformed how we collaborate. The intuitive interface and real-time updates have increased our productivity by at least 30%. I appreciate his focus on both functionality and user experience.</p>
+              <div class="flex justify-end">
+                <div class="text-primary-600 dark:text-primary-400 text-4xl">"</div>
+              </div>
+            </div>
+            <div class="flex items-center mt-4 ml-4">
+              <div class="w-10 h-10 rounded-full bg-primary-100 dark:bg-primary-900 flex items-center justify-center text-primary-600 dark:text-primary-400 mr-3">
+                <span class="font-bold">AK</span>
+              </div>
+              <div>
+                <p class="font-medium">Alex Kim</p>
+                <p class="text-dark-300 dark:text-light-300 text-xs">Collaborative Inc.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- More projects button -->
+    <div class="mt-8 sm:mt-12 text-center">
+      <a 
+        href="https://github.com/username"
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-light-100 dark:bg-dark-100 border border-light-300 dark:border-dark-300 rounded-lg hover:bg-light-200 dark:hover:bg-dark-300 transition-colors duration-300 text-sm sm:text-base"
+        aria-label="See more projects on GitHub"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 mr-1.5 sm:mr-2" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+        </svg>
+        See More Projects on GitHub
+      </a>
+    </div>
+  </div>
+</section>

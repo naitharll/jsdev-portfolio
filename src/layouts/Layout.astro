@@ -1,0 +1,100 @@
+---
+import '@fontsource-variable/inter';
+import '@fontsource-variable/playfair-display';
+import '@fontsource-variable/montserrat';
+import '@fontsource/poppins/400.css';
+import '@fontsource/poppins/500.css';
+import '@fontsource/poppins/600.css';
+import '@fontsource/poppins/700.css';
+
+import '../styles/swiper-styles.css';
+import '../styles/global.css';
+
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonicalURL?: string;
+  type?: 'website' | 'article';
+  keywords?: string;
+  author?: string;
+}
+
+const { 
+  title = "Name Lastname | JavaScript Developer Portfolio", 
+  description = "Lorem impresium",
+  image = "/images/portfolio-social-image.jpg",
+  canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site).toString() : Astro.url.pathname,
+  type = "website",
+  keywords = "JavaScript, React, Node.js, Web Development, Frontend Developer, Portfolio",
+  author = "Name Lastname"
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+		<link rel="canonical" href={canonicalURL} />
+
+		<!-- Primary Meta Tags -->
+		<title>{title}</title>
+		<meta name="title" content={title} />
+		<meta name="description" content={description} />
+		<meta name="keywords" content={keywords} />
+		<meta name="author" content={author} />
+		<meta name="generator" content={Astro.generator} />
+
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content={type} />
+		<meta property="og:url" content={canonicalURL} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={Astro.site ? new URL(image, Astro.site) : image} />
+
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={canonicalURL} />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={description} />
+		<meta property="twitter:image" content={Astro.site ? new URL(image, Astro.site) : image} />
+
+		<!-- Theme Color for browsers -->
+		<meta name="theme-color" content="#0ea5e9" />
+	</head>
+	<body class="bg-light-100 text-dark-100 dark:bg-dark-100 dark:text-light-100 transition-colors duration-500 font-sans">
+		<div class="min-h-screen flex flex-col overflow-x-hidden">
+			<Header />
+			<main class="flex-grow">
+				<slot />
+			</main>
+			<Footer />
+		</div>
+
+		<script>
+			const theme = (() => {
+				if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+					return localStorage.getItem('theme');
+				}
+				if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+					return 'dark';
+				}
+				return 'light';
+			})();
+
+			if (theme === 'dark') {
+				document.documentElement.classList.add('dark');
+			} else {
+				document.documentElement.classList.remove('dark');
+			}
+
+			window.localStorage.setItem('theme', theme);
+		</script>
+	</body>
+</html>
