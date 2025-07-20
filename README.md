@@ -4,7 +4,15 @@ A modern, responsive portfolio website built with Astro, React, and Tailwind CSS
 
 ![JavaScript Developer Portfolio](public/favicon.svg)
 
-> **Note:** This is a template project. Replace this section with a brief description of your portfolio and add a screenshot or GIF of your site here.
+## 📸 Screenshots
+
+Here are some screenshots of the portfolio website:
+
+![Homepage Light Mode](screencapture-localhost-4321-2025-07-20-18_53_41.png)
+*Screenshot of the portfolio homepage in light mode*
+
+![Homepage Dark Mode](screencapture-localhost-4321-2025-07-20-19_00_07.png)
+*Screenshot of the portfolio homepage in dark mode*
 
 ## 🚀 Features
 
