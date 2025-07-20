@@ -20,6 +20,8 @@ Here are some screenshots of the portfolio website:
 ![Homepage Mobile Dark Mode](screencapture-localhost-4321-2025-07-20-19_05_13.png)
 *Screenshot of the portfolio mobile homepage in dark mode*
 
+## Photos just show design not functionality, photos can be wrong !
+
 ## 🚀 Features
 
 - **Modern Design**: Clean, responsive layout with dark mode support
