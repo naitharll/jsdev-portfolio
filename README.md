@@ -8,11 +8,17 @@ A modern, responsive portfolio website built with Astro, React, and Tailwind CSS
 
 Here are some screenshots of the portfolio website:
 
-![Homepage Light Mode](screencapture-localhost-4321-2025-07-20-18_53_41.png)
-*Screenshot of the portfolio homepage in light mode*
+![Homepage Desktop Light Mode](screencapture-localhost-4321-2025-07-20-18_53_41.png)
+*Screenshot of the portfolio desktop homepage in light mode*
 
-![Homepage Dark Mode](screencapture-localhost-4321-2025-07-20-19_00_07.png)
-*Screenshot of the portfolio homepage in dark mode*
+![Homepage Mobile Light Mode](screencapture-localhost-4321-2025-07-20-19_04_22.png)
+*Screenshot of the portfolio mobile homepage in light mode*
+
+![Homepage Desktop Dark Mode](screencapture-localhost-4321-2025-07-20-19_00_07.png)
+*Screenshot of the portfolio desktop homepage in dark mode*
+
+![Homepage Mobile Dark Mode](screencapture-localhost-4321-2025-07-20-19_05_13.png)
+*Screenshot of the portfolio mobile homepage in dark mode*
 
 ## 🚀 Features
 
